@@ -1,3 +1,13 @@
+<%@page import="com.learn.mycart.entities.User"%>
+<%
+    
+    
+    User user1 = (User) session.getAttribute("current-user");
+
+
+%>
+
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light custom-bg">
     <div class="container">
 
@@ -25,13 +35,48 @@
           </ul>
 
           <ul class="navbar-nav ml-auto">
+              
+              
+                <li class="nav-item active">
+                    
+                    <a class="nav-link" href="#!" data-toggle="modal" data-target="#cart"><i class="fa fa-cart-plus" style="font-size: 30px;"></i><span class="ml-0 cart-items">(0)</span></a>
+<!--                <a class="nav-link" href="#!">Cart<span class="ml-0 cart-items">(0)</span></a>-->
+                </li>
+              
+              
+              <%
+                  
+              if(user1==null){
+              
+                    %>
+                    
+                    <li class="nav-item active">
+                        <a class="nav-link" href="login.jsp">Login</a>
+                    </li>   
+                    <li class="nav-item active">
+                        <a class="nav-link" href="register.jsp">Register</a>
+                    </li>  
+                    
+                    <%
+              }
+              else{
+              
 
-            <li class="nav-item active">
-              <a class="nav-link" href="login.jsp">Login</a>
-            </li>   
-            <li class="nav-item active">
-              <a class="nav-link" href="register.jsp">Register</a>
-            </li>   
+                %>
+                
+                    <li class="nav-item active">
+                        <a class="nav-link" href="<%=user1.getUserType().equals("admin")?"admin.jsp":"index.jsp"%>"><%= user1.getUserName() %></a>
+                    </li>   
+                    <li class="nav-item active">
+                        <a class="nav-link" href="LogoutServlet">Logout</a>
+                    </li>
+                
+                <%
+
+              }
+
+              %>
+             
 
           </ul>
 

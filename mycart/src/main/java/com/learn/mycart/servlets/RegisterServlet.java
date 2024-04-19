@@ -6,16 +6,15 @@ package com.learn.mycart.servlets;
 
 import com.learn.mycart.entities.User;
 import com.learn.mycart.helper.FactoryProvider;
+import java.io.IOException;
+import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import java.io.IOException;
-import java.io.PrintWriter;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
 
 /**
  *
